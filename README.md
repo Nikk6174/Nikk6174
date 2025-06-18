@@ -1,9 +1,6 @@
 # 👋 Hey There, I’m Nikhil Singh Parashar
 
-🚀 **Full‑Stack Web Developer** | 🎓 Junior Technical Member @ ECE Society, NIT Silchar
-💼 New to freelancing — offering competitive rates for high‑quality work
-
----
+🚀 **Full‑Stack Web Developer** | 
 
 ## ✨ About Me
 
