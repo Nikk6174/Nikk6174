@@ -20,7 +20,10 @@ I’m a passionate Full‑Stack Developer currently pursuing a B.Tech in Electro
 🖋️ JavaScript · 🔷 TypeScript · 🐍 Python · 💻 C · 🖤 C++
 
 **DevOps & Tools**
-🐳 Docker · ☸️ Kubernetes · ☁️ AWS · ⚙️ CI/CD · 🔧 NGINX · 🌲 Git · 🐼 Pandas
+🐳 Docker · ☸️ Kubernetes · ☁️ AWS · ⚙️ CI/CD  . 🌲 Git 
+
+Machine Learning
+🐍 Python · 🐼 Pandas · 🔢 NumPy · 🤖 Scikit-learn · 📊 Seaborn · 📉 Matplotlib · 🌐 Flask · 📈 Data Analysis
 
 ---
 
