@@ -71,11 +71,3 @@ I'm an Electronics & Communication Engineering undergrad at NIT Silchar, deeply 
 > **TrOCR, LightGBM, AWS, CI/CD**
 > An ensemble ML architecture utilizing 768-dim DeBERTa text embeddings and 2048-dim ResNet-50 image embeddings to predict prices, deployed via a continuous training MLOps pipeline on AWS.
 
----
-
-## 📈 GitHub Stats
-
-<div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Nikk6174&show_icons=true&theme=tokyonight" alt="Nikhil's GitHub Stats" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Nikk6174&layout=compact&theme=tokyonight" alt="Top Languages" />
-</div>
