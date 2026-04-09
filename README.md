@@ -1,89 +1,81 @@
-# 👋 Hey There, I’m Nikhil Singh Parashar
+<div align="center">
 
-🚀 **Full‑Stack Web Developer** | **Machine Learning Enthusiast**
+# Hi there, I'm Nikhil Singh Parashar 👋
 
-## ✨ About Me
+**Full-Stack Architect | Machine Learning Researcher | Open Source Enthusiast**
 
-I am an Electronics and Communication Engineering student at NIT Silchar (2023–2027) with a deep passion for bridging complex Machine Learning research with scalable Full-Stack development. From engineering multi-modal 3D object detection pipelines for autonomous driving to deploying high-performance, voice-driven AI platforms, I thrive on building end-to-end systems. As an active open-source enthusiast, I am driven by collaboration, continuous learning, and the challenge of architecting intelligent, user-centric applications. 🌟
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/nikhilsinghparashar/)
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-black?style=for-the-badge&logo=github)](https://github.com/Nikk6174)
+[![Email](https://img.shields.io/badge/Email-Contact-red?style=for-the-badge&logo=gmail)](mailto:nikhil.6174s@gmail.com)
 
----
+*“Bridging the gap between cutting-edge AI research and scalable web infrastructure.”*
 
-## 🎓 Education
-
-* **National Institute of Technology, Silchar** | Silchar, Assam
-  * Bachelor of Technology in Electronics and Communication Engineering (2023-2027)
-* **Kendriya Vidyalaya Hebbal** | Bengaluru, Karnataka
-  * Higher Secondary Education (CBSE 10+2) (2020-2022)
+</div>
 
 ---
 
-## 🔬 Research Experience
+## 🚀 About Me
 
-### Research Intern: Task-Driven 3D Vehicle Detection & Tracking (Dec 2025 - Feb 2026)
-*National Institute of Technology Silchar - Image Processing Lab under the guidance of Dr Tripti Goel*
+I'm an Electronics & Communication Engineering undergrad at NIT Silchar, deeply passionate about building end-to-end intelligent systems. I specialize in designing robust machine learning pipelines and deploying them into production-grade, user-centric SaaS applications.
 
-* Worked on a transformer-fused multi-modal 3D object detection and tracking pipeline combining LiDAR point clouds and RGB imagery for autonomous driving on the KITTI benchmark, tracking experiments and model versioning via MLflow.
-* Designed a bio-inspired task-driven LiDAR sensing paradigm switching between full-scan and frustum-masked point clouds at a j0 km/h ego-velocity threshold, processing up to 16,384 points per sample.
-* Replaced naive feature concatenation with a Dual-Feature Interaction Module (DFIM) using stacked self- and cross-attention transformers over a ResNet-50 (PyTorch) backbone for soft LiDAR-camera fusion.
-* Built an uncertainty-aware 3D IoU loss with learned log-variance, outputting 8-Degree of Freedom predictions for self-calibrating confidence on ambiguous objects.
-
----
-
-## 🚧 Projects
-
-### 🛒 E-commerce Price Prediction System | Amazon ML Challenge 2025 (Oct 2025)
-* Built a multimodal price prediction pipeline using catalog text and images, ranking in the top 2% of participants nationwide.
-* Fine-tuned Microsoft TrOCR on product label images to extract brand names, quantities and units on dataset of 75,000 products and implemented cross-validated target encoding to reduce data leakage, improving model reliability by 15%.
-* Built an ensemble architecture combining LightGBM, XGBoost, and CatBoost; generated 768-dim DeBERTa text embeddings and 2048-dim ResNet-50 (PyTorch) image embeddings using Scikit-learn and Pandas pipelines.
-* Architected an MLOps pipeline on AWS with CI/CD and continuous training (CT) workflows, automating model retraining, versioning, and deployment to deliver a production-grade, scalable inference system.
-
-### 🛡️ Ethereum Wallet Risk Scoring Model (Jul 2025)
-* Developed a multi-stage risk scoring model (0-1000) to analyze 80 Ethereum wallets on Compound V2/V3, built on an automated Python pipeline fetching raw transaction data via the Etherscan API.
-* Deployed Isolation Forest (Scikit-learn) for anomaly detection, flagging 4 high-risk wallets deviating from standard transaction patterns; simulating real-world fraud detection logic.
-* Applied K-Means clustering to segment users into 5 distinct behavioral profiles, combining unsupervised learning with weighted metrics to refine risk categorization across the scoring model.
-
-### 🚀 AI-Powered SaaS Learning Platform Converso (May 2025)
-* Engineered a voice-driven AI tutoring platform serving 100+ active users, featuring personalized conversational sessions via Vapi voice AI, Clerk authentication, and Stripe payments on a Next.js framework with sub-1s load time.
-* Built a scalable PostgreSQL architecture on Supabase with 99.9% uptime and sub-200ms response times; developed with TypeScript for type-safe reliability and monitored via Sentry in production.
-
-### 🎓 ECS Website & Quiz App (Dec 2024)
-* Modular React components with Tailwind CSS (build time ↓15%).
-* Enhanced backend using Node.js, Express.js & MongoDB.
-* Real‑time quiz system for 200+ users + Redis‑powered leaderboard.
+* 🔭 **Currently Working On:** Developing an advanced OCR/HTR pipeline utilizing `TrOCR` to recognize and digitize 17th-century historical Spanish manuscripts. 
+* 🌱 **Currently Learning:** Diving deep into **PyTorch**, **MLOps** (ZenML, MLflow), and the architecture behind **Agentic AI**.
+* 🎯 **2026 Goals:** Actively preparing proposals to contribute to impactful organizations for **Google Summer of Code (GSoC)**.
+* 🏆 **Milestones:** Secured All India Rank **1843** in the Amazon ML Challenge 2025.
+* 💬 **Ask Me About:** Next.js, Multi-modal 3D Object Detection, scaling PostgreSQL, or building full-stack voice-AI platforms.
+* ⚡ **Fun Fact:** I'll always slip `using namespace std;` into my C++ projects, but when it comes to crushing Data Structures and Algorithms, Python is my absolute go-to.
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Languages & Tools
 
-* **Machine Learning:** PyTorch, MLFlow, Pandas, NumPy, Scikit-learn, Matplotlib, Flask, Data Analysis, Deep learning, NLP
-* **Cloud & Database:** AWS, Docker, GitHub Actions, MongoDB, PostgreSQL, Supabase, NoSQL
-* **Languages & Fundamentals:** Python, C++, JavaScript, TypeScript, Object-Oriented Programming, DSA
-* **Web Development:** React.js, Next.js, Node.js, Express.js, HTML5, CSS3, Tailwind CSS, Responsive Web Design
+<div align="left">
 
----
+**Languages**
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
+![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=flat&logo=c%2B%2B&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
 
-## 🏆 Achievements & Certifications
+**Machine Learning & Data**
+![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat&logo=pytorch&logoColor=white)
+![Scikit-Learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=flat&logo=scikit-learn&logoColor=white)
+![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=flat&logo=pandas&logoColor=white)
+![NumPy](https://img.shields.io/badge/numpy-%23013243.svg?style=flat&logo=numpy&logoColor=white)
+![MLflow](https://img.shields.io/badge/MLflow-0194E2?style=flat&logo=mlflow&logoColor=white)
 
-* Achieved All India Rank of 1843 out of 80,000 participants in Amazon ML challenge 2025.
-* Complete Data Science Machine Learning Certificate by Krish Naik (Udemy).
+**Full-Stack & Cloud**
+![Next JS](https://img.shields.io/badge/Next-black?style=flat&logo=next.js&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB)
+![NodeJS](https://img.shields.io/badge/Node.js-43853D?style=flat&logo=node.js&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=flat&logo=postgresql&logoColor=white)
+![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=flat&logo=supabase&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=flat&logo=amazon-aws&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)
 
----
-
-## 👑 Position of Responsibility
-
-### Technical Head and Software Development Mentor | ECE Society, NIT Silchar (Jul 2024 - May 2025)
-* Led dev team for society website.
-* Mentored 100+ students via tech workshops on programming and web development.
-
----
-
-## 📫 Connect with Me
-
-✉️ **Email:** nikhil.6174s@gmail.com
-📞 **Phone:** 9865007948
-🐙 **GitHub:** [Nikk6174](https://github.com/Nikk6174)
-💼 **LinkedIn:** [Nikhil Singh Parashar](https://www.linkedin.com/in/nikhilsinghparashar/)
+</div>
 
 ---
 
-*⚡ Let’s build something amazing together!*
+## 🌟 Featured Projects
+
+### [Task-Driven 3D Vehicle Detection & Tracking](https://github.com/Nikk6174)
+> **PyTorch, MLflow, KITTI Benchmark**
+> A transformer-fused multi-modal 3D object detection pipeline combining LiDAR point clouds and RGB imagery. Features a Dual-Feature Interaction Module (DFIM) and a bio-inspired task-driven LiDAR sensing paradigm for autonomous driving.
+
+### [Converso: AI-Powered SaaS Learning Platform](https://converso-9j1y.vercel.app/)
+> **Next.js, TypeScript, Vapi AI, Supabase, Stripe**
+> A voice-driven AI tutoring platform serving 100+ active users with sub-1s load times. Built on a scalable PostgreSQL architecture with real-time error tracking via Sentry.
+
+### [E-commerce Price Prediction Ecosystem](https://github.com/Nikk6174)
+> **TrOCR, LightGBM, AWS, CI/CD**
+> An ensemble ML architecture utilizing 768-dim DeBERTa text embeddings and 2048-dim ResNet-50 image embeddings to predict prices, deployed via a continuous training MLOps pipeline on AWS.
+
+---
+
+## 📈 GitHub Stats
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=Nikk6174&show_icons=true&theme=tokyonight" alt="Nikhil's GitHub Stats" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Nikk6174&layout=compact&theme=tokyonight" alt="Top Languages" />
+</div>
