@@ -1,14 +1,33 @@
 #!/usr/bin/env python3
-"""Turn a photo into ascii.svg using braille characters for high-resolution output.
+"""Turn a photo into ascii.svg — a self-typing, monochrome ASCII portrait.
 
-Braille characters (U+2800-U+28FF) encode a 2x4 dot grid per character,
-giving 8x the effective resolution of standard ASCII art. At 90 columns,
-this produces the equivalent of ~180x320 pixel detail.
+This is the generator that produced the portrait at the top of the README.
+Run it once; it is not on a schedule, unlike scripts/generate_stats.py.
 
     pip install pillow numpy opencv-python-headless rembg onnxruntime
-    python3 scripts/make_portrait.py assets/photo.png
+    python3 scripts/make_portrait.py photo.png --crop 400,110,910,790
+    python3 scripts/embed_portrait_font.py      # inline the font, see below
 
 The first run downloads a ~176 MB background-removal model, once.
+
+Two things decide whether the output is any good, and neither is a parameter:
+
+  * The photo. ASCII draws with shadow, not detail — about 13 brightness levels
+    in total. You need side light (a window at ~45°, everything else off), a
+    tight crop from chin to just above the hair, and real resolution. A 320px
+    headshot fails: thin features like glasses frames are averaged away on
+    downscale. Flat frontal light renders the face as a hole.
+  * The darkening curve below. Without it the face comes out washed out and
+    featureless — brows, glasses and lips all dissolve.
+
+The grid bakes in an advance width of exactly 0.600 em (CHAR_W / FONT_SIZE), so
+after generating, run scripts/embed_portrait_font.py to inline JetBrains Mono.
+Otherwise a viewer whose default monospace is narrower — Consolas is ≈0.55 —
+sees the portrait about 7% too narrow.
+
+Motion is SMIL, because GitHub strips <script> from READMEs: each row is
+revealed by a clipPath wipe with a cursor block riding its edge, staggered top
+to bottom, frozen at the end so it prints once and stops.
 """
 import argparse
 import sys
@@ -18,30 +37,17 @@ import numpy as np
 from PIL import Image
 from rembg import remove
 
-COLS = 90                  # character columns in the output
+RAMP = " .`:-=+*cs#%@"     # bright/sparse -> dark/dense; leading space = blank
+COLS = 90                  # below ~88 the face muddies; far above it dominates
 CLAHE_CLIP = 3.0           # higher amplifies skin texture into noise
-CURVE = 1.7                # the darkening curve -- the difference-maker
+GAMMA = 1.0                # ramp mapping exponent
+CURVE = 1.7                # the darkening curve — the difference-maker
 CROP_BOTTOM = 0.0          # fraction to trim off the bottom (torso, chair)
 ROW_RATIO = 0.48           # monospace cells are about twice as tall as wide
 
-# Braille dot mapping: each braille char is a 2x4 grid of dots
-# Unicode braille starts at U+2800; each dot maps to a specific bit:
-#   Position (row,col) -> bit value:
-#   (0,0)->0x01  (0,1)->0x08
-#   (1,0)->0x02  (1,1)->0x10
-#   (2,0)->0x04  (2,1)->0x20
-#   (3,0)->0x40  (3,1)->0x80
-BRAILLE_BASE = 0x2800
-DOT_MAP = [
-    [0x01, 0x08],
-    [0x02, 0x10],
-    [0x04, 0x20],
-    [0x40, 0x80],
-]
-
-FG_LIGHT = "#6e7681"       # readable on GitHub light
-FG_DARK = "#c9d1d9"        # dark-mode variant
-CHAR_W = 7.74              # 0.600 em at FONT_SIZE
+FG_LIGHT = "#6e7681"       # readable on GitHub light — the portrait's grey
+FG_DARK = "#c9d1d9"        # and its dark-mode step
+CHAR_W = 7.74              # 0.600 em at FONT_SIZE — keep these in step
 FONT_SIZE = 12.9
 LINE_H = 15
 ROW_DELAY = 0.09           # per-row stagger, seconds
@@ -57,7 +63,8 @@ def prep(path, crop=None):
     cut = remove(src)
     alpha = np.array(cut.split()[-1])
 
-    # Composite onto white so everything outside the subject maps to blank
+    # Composite onto white so everything outside the subject maps to the blank
+    # end of the ramp. Skip this and the background fills with @ and %.
     white = Image.new("RGBA", cut.size, (255, 255, 255, 255))
     gray = np.array(Image.alpha_composite(white, cut).convert("L"))
 
@@ -65,83 +72,33 @@ def prep(path, crop=None):
     gray = cv2.createCLAHE(clipLimit=CLAHE_CLIP,
                            tileGridSize=(8, 8)).apply(gray)
     gray = (255.0 * (gray / 255.0) ** CURVE).astype("uint8")
-    gray[alpha < 20] = 255                              # force the matte to white
+    gray[alpha < 20] = 255                            # force the matte to white
     return Image.fromarray(gray)
 
 
-def floyd_steinberg_dither(img_array):
-    """Apply Floyd-Steinberg dithering to a grayscale image.
-
-    Returns a boolean array where True = dark (dot ON).
-    This produces far more detail than simple thresholding, preserving
-    gradients and subtle features like glasses frames and facial contours.
-    """
-    h, w = img_array.shape
-    buf = img_array.astype(np.float64)
-
-    for y in range(h):
-        for x in range(w):
-            old = buf[y, x]
-            new = 0.0 if old < 128 else 255.0
-            buf[y, x] = new
-            err = old - new
-            if x + 1 < w:
-                buf[y, x + 1] += err * 7.0 / 16.0
-            if y + 1 < h:
-                if x - 1 >= 0:
-                    buf[y + 1, x - 1] += err * 3.0 / 16.0
-                buf[y + 1, x] += err * 5.0 / 16.0
-                if x + 1 < w:
-                    buf[y + 1, x + 1] += err * 1.0 / 16.0
-
-    return buf < 128  # True = dark dot
-
-
-def to_braille_lines(img, cols=COLS):
-    """Convert a grayscale image to braille character lines.
-
-    Each braille character covers a 2x4 pixel area, giving 8x the
-    effective resolution of a single ASCII character.
-    """
+def to_lines(img, cols=COLS, gamma=GAMMA):
     w, h = img.size
     if CROP_BOTTOM:
         img = img.crop((0, 0, w, int(h * (1 - CROP_BOTTOM))))
         w, h = img.size
 
-    # Calculate character grid dimensions
-    char_rows = int(cols * (h / w) * ROW_RATIO)
+    rows = int(cols * (h / w) * ROW_RATIO)
+    img = img.resize((cols, rows), Image.LANCZOS)
+    px = list(img.getdata())
+    n = len(RAMP)
 
-    # Pixel grid: 2 pixels per column, 4 pixels per row
-    pixel_w = cols * 2
-    pixel_h = char_rows * 4
+    out = []
+    for r in range(rows):
+        out.append("".join(
+            RAMP[min(n - 1, int((1 - px[r * cols + c] / 255.0) ** gamma * n))]
+            for c in range(cols)
+        ).rstrip())
 
-    img = img.resize((pixel_w, pixel_h), Image.LANCZOS)
-    pixels = np.array(img)
-
-    # Dither for maximum detail
-    dark = floyd_steinberg_dither(pixels)
-
-    lines = []
-    for row in range(char_rows):
-        line = []
-        for col in range(cols):
-            code = 0
-            for dy in range(4):
-                for dx in range(2):
-                    py = row * 4 + dy
-                    px = col * 2 + dx
-                    if py < dark.shape[0] and px < dark.shape[1] and dark[py, px]:
-                        code |= DOT_MAP[dy][dx]
-            line.append(chr(BRAILLE_BASE + code))
-        lines.append("".join(line).rstrip())
-
-    # Trim empty lines from top and bottom
-    while lines and not lines[0].strip():
-        lines.pop(0)
-    while lines and not lines[-1].strip():
-        lines.pop()
-
-    return lines
+    while out and not out[0].strip():
+        out.pop(0)
+    while out and not out[-1].strip():
+        out.pop()
+    return out
 
 
 def build_svg(lines, cols=COLS):
@@ -187,12 +144,12 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("photo")
     ap.add_argument("out", nargs="?", default="ascii.svg")
-    ap.add_argument("--crop", help="left,top,right,bottom, applied first -- crop "
+    ap.add_argument("--crop", help="left,top,right,bottom, applied first — crop "
                                    "tight to the head so the whole grid goes to "
                                    "the face")
     ap.add_argument("--cols", type=int, default=COLS)
     ap.add_argument("--preview", action="store_true",
-                    help="print the braille art to the terminal as well")
+                    help="print the ASCII to the terminal as well")
     args = ap.parse_args()
 
     crop = None
@@ -202,13 +159,14 @@ def main():
             sys.exit("--crop needs four numbers: left,top,right,bottom")
         crop = tuple(parts)
 
-    lines = to_braille_lines(prep(args.photo, crop), cols=args.cols)
+    lines = to_lines(prep(args.photo, crop), cols=args.cols)
     if args.preview:
         print("\n".join(lines))
 
     with open(args.out, "w", encoding="utf-8") as f:
         f.write(build_svg(lines, cols=args.cols))
-    print(f"wrote {args.out} -- {len(lines)} rows, {args.cols} columns (braille)")
+    print(f"wrote {args.out} — {len(lines)} rows, {args.cols} columns")
+    print("next: python3 scripts/embed_portrait_font.py")
 
 
 if __name__ == "__main__":
