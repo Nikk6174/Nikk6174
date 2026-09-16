@@ -1,73 +1,60 @@
 <div align="center">
 
-# Hi there, I'm Nikhil Singh Parashar 👋
+<img src="./ascii.svg" width="460" alt="Nikhil Singh Parashar"/>
 
-**Full-Stack Architect | Machine Learning Researcher | Open Source Enthusiast**
+<img src="./stats.svg" width="620" alt="Contributions in the last year"/>
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/nikhilsinghparashar/)
-[![GitHub](https://img.shields.io/badge/GitHub-Follow-black?style=for-the-badge&logo=github)](https://github.com/Nikk6174)
-[![Email](https://img.shields.io/badge/Email-Contact-red?style=for-the-badge&logo=gmail)](mailto:nikhil.6174s@gmail.com)
-
-*“Bridging the gap between cutting-edge AI research and scalable web infrastructure.”*
+[linkedin](https://www.linkedin.com/in/nikhilsinghparashar/) &nbsp;·&nbsp;
+[github](https://github.com/Nikk6174) &nbsp;·&nbsp;
+[email](mailto:nikhil.6174s@gmail.com)
 
 </div>
 
----
+<img src="./hd-about.svg" width="620" alt="about"/>
 
-## 🚀 About Me
+> Electronics & Communication Engineering undergrad at NIT Silchar,<br>
+> bridging the gap between cutting-edge AI research and scalable web infrastructure.
 
-I'm an Electronics & Communication Engineering undergrad at NIT Silchar, deeply passionate about building end-to-end intelligent systems. I specialize in designing robust machine learning pipelines and deploying them into production-grade, user-centric SaaS applications.
+Building end-to-end intelligent systems — from ML pipelines to production-grade SaaS.<br>
+Currently developing an advanced OCR/HTR pipeline using `TrOCR` to digitize 17th-century<br>
+historical Spanish manuscripts. Diving deep into **PyTorch**, **MLOps** (ZenML, MLflow),<br>
+and the architecture behind **Agentic AI**.
 
-* 🔭 **Currently Working On:** Developing an advanced OCR/HTR pipeline utilizing `TrOCR` to recognize and digitize 17th-century historical Spanish manuscripts. 
-* 🌱 **Currently Learning:** Diving deep into **PyTorch**, **MLOps** (ZenML, MLflow), and the architecture behind **Agentic AI**.
-* 🎯 **2026 Goals:** Actively preparing proposals to contribute to impactful organizations for **Google Summer of Code (GSoC)**.
-* 🏆 **Milestones:** Secured All India Rank **1843** in the Amazon ML Challenge 2025.
-* 💬 **Ask Me About:** Next.js, Multi-modal 3D Object Detection, scaling PostgreSQL, or building full-stack voice-AI platforms.
-* ⚡ **Fun Fact:** I'll always slip `using namespace std;` into my C++ projects, but when it comes to crushing Data Structures and Algorithms, Python is my absolute go-to.
+🎯 Actively preparing proposals for **Google Summer of Code (GSoC)** 2026.<br>
+🏆 Secured All India Rank **1843** in the Amazon ML Challenge 2025.
 
----
+<img src="./hd-stack.svg" width="620" alt="stack"/>
 
-## 🛠️ Languages & Tools
+<samp>python &nbsp; c++ &nbsp; typescript &nbsp; javascript &nbsp; pytorch &nbsp; scikit-learn &nbsp; pandas &nbsp; numpy &nbsp; mlflow</samp><br>
+<samp>next.js &nbsp; react &nbsp; node.js &nbsp; postgresql &nbsp; supabase &nbsp; aws &nbsp; docker &nbsp; git &nbsp; linux</samp>
 
-<div align="left">
+<img src="./hd-projects.svg" width="620" alt="projects"/>
 
-**Languages**
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
-![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=flat&logo=c%2B%2B&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
+**[Task-Driven 3D Vehicle Detection & Tracking](https://github.com/Nikk6174)** &nbsp;·&nbsp; <samp>pytorch, mlflow, kitti</samp><br>
+A transformer-fused multi-modal 3D object detection pipeline combining LiDAR point<br>
+clouds and RGB imagery. Features a Dual-Feature Interaction Module (DFIM) and a<br>
+bio-inspired task-driven LiDAR sensing paradigm for autonomous driving.
 
-**Machine Learning & Data**
-![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat&logo=pytorch&logoColor=white)
-![Scikit-Learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=flat&logo=scikit-learn&logoColor=white)
-![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=flat&logo=pandas&logoColor=white)
-![NumPy](https://img.shields.io/badge/numpy-%23013243.svg?style=flat&logo=numpy&logoColor=white)
-![MLflow](https://img.shields.io/badge/MLflow-0194E2?style=flat&logo=mlflow&logoColor=white)
+**[Converso: AI-Powered SaaS Learning Platform](https://converso-9j1y.vercel.app/)** &nbsp;·&nbsp; <samp>next.js, typescript, vapi ai, supabase</samp><br>
+A voice-driven AI tutoring platform serving 100+ active users with sub-1s load times.<br>
+Built on a scalable PostgreSQL architecture with real-time error tracking via Sentry.
 
-**Full-Stack & Cloud**
-![Next JS](https://img.shields.io/badge/Next-black?style=flat&logo=next.js&logoColor=white)
-![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB)
-![NodeJS](https://img.shields.io/badge/Node.js-43853D?style=flat&logo=node.js&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=flat&logo=postgresql&logoColor=white)
-![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=flat&logo=supabase&logoColor=white)
-![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=flat&logo=amazon-aws&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)
+**[E-commerce Price Prediction Ecosystem](https://github.com/Nikk6174)** &nbsp;·&nbsp; <samp>trocr, lightgbm, aws, ci/cd</samp><br>
+An ensemble ML architecture utilizing 768-dim DeBERTa text embeddings and 2048-dim<br>
+ResNet-50 image embeddings to predict prices, deployed via a continuous training<br>
+MLOps pipeline on AWS.
 
-</div>
+<img src="./hd-stats.svg" width="620" alt="stats"/>
 
----
+<img src="./streak.svg" width="620" alt="streak"/>
 
-## 🌟 Featured Projects
+<img src="./langs.svg" width="620" alt="languages"/>
 
-### [Task-Driven 3D Vehicle Detection & Tracking](https://github.com/Nikk6174)
-> **PyTorch, MLflow, KITTI Benchmark**
-> A transformer-fused multi-modal 3D object detection pipeline combining LiDAR point clouds and RGB imagery. Features a Dual-Feature Interaction Module (DFIM) and a bio-inspired task-driven LiDAR sensing paradigm for autonomous driving.
+<img src="./year.svg" width="620" alt="year"/>
 
-### [Converso: AI-Powered SaaS Learning Platform](https://converso-9j1y.vercel.app/)
-> **Next.js, TypeScript, Vapi AI, Supabase, Stripe**
-> A voice-driven AI tutoring platform serving 100+ active users with sub-1s load times. Built on a scalable PostgreSQL architecture with real-time error tracking via Sentry.
+<img src="./hd-about-this-page.svg" width="620" alt="about this page"/>
 
-### [E-commerce Price Prediction Ecosystem](https://github.com/Nikk6174)
-> **TrOCR, LightGBM, AWS, CI/CD**
-> An ensemble ML architecture utilizing 768-dim DeBERTa text embeddings and 2048-dim ResNet-50 image embeddings to predict prices, deployed via a continuous training MLOps pipeline on AWS.
-
+> This page generates itself. The portrait is ASCII art from a real photo,<br>
+> animated with SMIL. Stats refresh nightly via a GitHub Action that queries the<br>
+> GraphQL API — zero third-party services. Typography is JetBrains Mono, inlined<br>
+> as base64 so it renders identically on every platform.
